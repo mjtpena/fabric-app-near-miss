@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+@import '@x10/shared/styles.css';
+@source "../../../shared/src";
+
+/*
+ * Near-Miss colour system. Potential (how bad it could have been), status, category, age and heat each have their own
+ * encoding; the site plan, the list, the toolbox talk and the indicators share them so a colour means one thing.
+ */
+:root {
+  --pot-low: var(--slate-8);
+  --pot-medium: var(--gold-9);
+  --pot-high: var(--orange-9);
+  --pot-serious: var(--crimson-9);
+
+  --st-new: var(--magenta-9);
+  --st-triaged: var(--sky-9);
+  --st-action_assigned: var(--orange-9);
+  --st-fixed: var(--green-9);
+  --st-closed: var(--gray-8);
+
+  --age-week: var(--magenta-9);
+  --age-month: var(--violet-9);
+  --age-quarter: var(--sky-8);
+  --age-old: var(--gray-7);
+
+  --heat-1: var(--amber-9);
+  --heat-2: var(--orange-9);
+  --heat-3: var(--crimson-9);
+
+  /* The drawing: paper, floor, walls and ink (architectural, from the world tokens). */
+  --plan-paper: var(--world-sky-2);
+  --plan-grid: color-mix(in oklab, var(--world-ink) 5%, transparent);
+  --plan-grid-major: color-mix(in oklab, var(--world-ink) 9%, transparent);
+  --plan-floor: var(--world-structure);
+  --plan-floor-2: color-mix(in oklab, var(--world-structure) 70%, var(--world-structure-2));
+  --plan-route: color-mix(in oklab, var(--world-ground) 75%, var(--world-structure));
+  --plan-yard: color-mix(in oklab, var(--world-ground) 55%, var(--world-sky-2));
+  --plan-wall: var(--world-ink);
+  --plan-wall-2: color-mix(in oklab, var(--world-ink) 62%, transparent);
+  --plan-line: color-mix(in oklab, var(--world-ink) 28%, transparent);
+  --plan-line-2: color-mix(in oklab, var(--world-ink) 14%, transparent);
+  --plan-fixture: color-mix(in oklab, var(--world-ink) 7%, var(--world-structure));
+  --plan-label: var(--world-ink-muted);
+  --plan-ink: var(--world-ink);
+  --plan-crossing: color-mix(in oklab, var(--world-ink) 70%, transparent);
+  --plan-pin-edge: var(--world-structure);
+  --plan-focus: var(--accent-9);
+  --plan-focus-line: var(--accent-11);
+}
+
+/* Pins drop in with a soft bounce, in report order. */
+@keyframes nm-drop {
+  0% {
+    transform: translateY(-34px) scale(0.85);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(2px) scale(1);
+    opacity: 1;
+  }
+  72% {
+    transform: translateY(-5px);
+  }
+  86% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.nm-drop {
+  animation: nm-drop 620ms cubic-bezier(0.3, 0.7, 0.4, 1) both;
+}
+
+@keyframes nm-shadow {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.nm-drop-shadow {
+  animation: nm-shadow 620ms cubic-bezier(0.3, 0.7, 0.4, 1) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Untriaged high and serious reports: a ring that keeps calling. */
+@keyframes nm-ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.nm-ping {
+  animation: nm-ping 1.8s cubic-bezier(0.2, 0, 0, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Heat blooms out from the hotspot. */
+.nm-heat {
+  transition:
+    transform 700ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 700ms cubic-bezier(0.2, 0, 0, 1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nm-pan {
+  transition: transform 650ms cubic-bezier(0.25, 0, 0, 1);
+}
+.nm-fade {
+  transition: opacity 240ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes nm-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.nm-focus-ring {
+  animation: nm-dash 1.2s linear infinite;
+}
+
+.nm-pin {
+  cursor: pointer;
+  outline: none;
+}
+.nm-pin:focus-visible .nm-pin-head {
+  stroke: var(--plan-focus-line);
+  stroke-width: 3;
+}
+.nm-zone-hit {
+  cursor: pointer;
+  outline: none;
+}
+.nm-zone-hit:focus-visible {
+  stroke: var(--plan-focus-line);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+/* Range input for the time slider: thin track, the thumb is drawn by the timeline itself. */
+.nm-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.nm-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 44px;
+  background: transparent;
+}
+.nm-range::-moz-range-thumb {
+  width: 22px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+}
+.nm-range:focus-visible + .nm-thumb {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent-9) 45%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nm-drop,
+  .nm-drop-shadow,
+  .nm-ping,
+  .nm-focus-ring {
+    animation: none;
+  }
+  .nm-heat,
+  .nm-pan,
+  .nm-fade {
+    transition: none;
+  }
+}
+
+/*
+ * Print: the toolbox talk and the reports list print as documents. Release the immersive shell's fixed height.
+ */
+@media print {
+  div:has(> main#main) {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+  main#main {
+    display: block !important;
+  }
+  .x-stage-root nav[aria-label='Breadcrumb'] {
+    display: none !important;
+  }
+  .x-table thead {
+    display: table-header-group;
+  }
+  .x-table tr,
+  .nm-avoid-break {
+    break-inside: avoid;
+  }
+}
+
+/* Heat reads as warm ink on paper in light, as glow in the dark. */
+.nm-heat-layer {
+  mix-blend-mode: multiply;
+}
+:root[data-theme='dark'] .nm-heat-layer {
+  mix-blend-mode: screen;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .nm-heat-layer {
+    mix-blend-mode: screen;
+  }
+}

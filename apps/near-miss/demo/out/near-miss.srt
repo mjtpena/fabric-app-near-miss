@@ -1,0 +1,119 @@
+1
+00:00:03,205 --> 00:00:08,039
+Most serious injuries at work follow near misses that someone saw and never
+
+2
+00:00:08,039 --> 00:00:12,745
+reported, because reporting was slow or felt like telling on a colleague.
+
+3
+00:00:13,195 --> 00:00:17,089
+Near-Miss is a Fabric App where every hazard on a site is a
+
+4
+00:00:17,089 --> 00:00:20,785
+pin on its plan, coloured by how bad it could have been.
+
+5
+00:00:21,851 --> 00:00:26,101
+The status lens shows what is new, triaged, or waiting
+
+6
+00:00:26,101 --> 00:00:29,801
+on a fix; fixed hazards shrink to a check mark.
+
+7
+00:00:30,251 --> 00:00:34,539
+The heat lens weights every report by its potential, and the
+
+8
+00:00:34,539 --> 00:00:38,541
+loading dock is the top hotspot of the last ninety days.
+
+9
+00:00:39,352 --> 00:00:42,944
+Replay the ninety days and watch it form: forklifts and
+
+10
+00:00:42,944 --> 00:00:46,862
+people crossing at the same dock doors, report after report.
+
+11
+00:00:47,312 --> 00:00:49,690
+Then the barrier and the signal crossing
+
+12
+00:00:49,690 --> 00:00:51,712
+went in, and the heat cooled away.
+
+13
+00:00:52,519 --> 00:00:56,932
+Today ranks what needs attention now: a serious near miss is
+
+14
+00:00:56,932 --> 00:01:01,419
+past its four-hour triage limit, and seven fixes are overdue.
+
+15
+00:01:02,224 --> 00:01:05,137
+View it as a supervisor for your own site, or as a
+
+16
+00:01:05,137 --> 00:01:08,574
+reporter to see your own reports and what happened to them.
+
+17
+00:01:11,826 --> 00:01:14,660
+Reporting takes a few taps: where on the
+
+18
+00:01:14,660 --> 00:01:17,706
+plan, what kind, how bad, and one sentence.
+
+19
+00:01:18,156 --> 00:01:22,356
+Report anonymously and the name is not stored at all, so
+
+20
+00:01:22,356 --> 00:01:26,406
+nobody, not even the safety lead, can see who sent it.
+
+21
+00:01:26,856 --> 00:01:29,661
+The honest trade-off is that nobody can edit
+
+22
+00:01:29,661 --> 00:01:31,956
+it afterwards, and the form says so.
+
+23
+00:01:32,765 --> 00:01:36,592
+The site supervisor triages it, but a serious report cannot
+
+24
+00:01:36,592 --> 00:01:39,705
+be fixed or closed until someone owns an action.
+
+25
+00:01:40,155 --> 00:01:42,984
+Assign the fix to an owner; the due
+
+26
+00:01:42,984 --> 00:01:46,945
+date defaults by potential, two days for serious.
+
+27
+00:01:48,154 --> 00:01:52,434
+For the start of a shift, the toolbox talk prints one page on
+
+28
+00:01:52,434 --> 00:01:57,064
+a zone: what was reported, what was fixed, and what to talk about.
+
+29
+00:01:57,865 --> 00:02:01,476
+Report it in thirty seconds, fix it before anyone gets hurt,
+
+30
+00:02:01,476 --> 00:02:04,725
+and let the plan show you where the risk is gathering.
